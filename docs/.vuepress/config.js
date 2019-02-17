@@ -1,4 +1,5 @@
 module.exports = {
+  base: '/work/',
   title: "reco-work",
   description: '好记性不如烂笔头，不是不会，是真记不住 ^_^',
   dest: 'public',
