@@ -1,0 +1,43 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn install
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/aria2/bin
+
+Yarn version: 
+  1.7.0
+
+Node version: 
+  11.4.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: ENOENT: no such file or directory, copyfile '/Users/reco/Library/Caches/Yarn/v1/npm-arr-diff-2.0.0-8f3b827f955a8bd669697e4a4256ac3ceae356cf/LICENSE' -> '/Users/reco/workSpace/git/personal/work/node_modules/@babel/core/node_modules/arr-diff/LICENSE'
+
+npm manifest: 
+  {
+    "name": "reco-work",
+    "version": "1.0.0",
+    "description": "recoluan's blog",
+    "main": "index.js",
+    "repository": "http://recoluan.gitlab.io/work",
+    "author": "reco_luan",
+    "license": "MIT",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "dev": "vuepress dev docs",
+      "build": "vuepress build docs"
+    },
+    "devDependencies": {
+      "vuepress": "^0.14.4",
+      "vuepress-theme-reco": "^0.2.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
