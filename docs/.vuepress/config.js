@@ -26,7 +26,8 @@ module.exports = {
           ] },
           {
             text: '其他', items: [
-              { text: 'Other', link: '/categories/other' }
+              { text: 'Other', link: '/categories/other' },
+              { text: 'Tool', link: '/categories/tool' }
             ]
           }
         ]
@@ -45,10 +46,10 @@ module.exports = {
     // author
     author: 'reco_luan',
     // valine config
-    // valineConfig: {
-    //   appId: 'Q6hMeY2PSaM9FMkXetzoJoU5-gzGzoHsz',// your appId
-    //   appKey: 'iLQlev5jo2Cm5pLcI0z3qhtr', // your appKey
-    // }
+    valineConfig: {
+      appId: 'Q6hMeY2PSaM9FMkXetzoJoU5-gzGzoHsz',// your appId
+      appKey: 'iLQlev5jo2Cm5pLcI0z3qhtr', // your appKey
+    }
   },
   markdown: {
     lineNumbers: true
