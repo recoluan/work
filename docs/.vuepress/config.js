@@ -23,6 +23,7 @@ module.exports = {
             { text: 'Vue', link: '/categories/vue' },
             { text: 'React', link: '/categories/react' },
             { text: 'Jquery', link: '/categories/jquery' },
+            { text: 'NodeJS', link: '/categories/nodejs' },
           ] },
           {
             text: '其他', items: [
