@@ -28,7 +28,8 @@ module.exports = {
           {
             text: '其他', items: [
               { text: 'Other', link: '/categories/other' },
-              { text: 'Tool', link: '/categories/tool' }
+              { text: 'Tool', link: '/categories/tool' },
+              { text: 'Interview', link: '/categories/interview' }
             ]
           }
         ]
