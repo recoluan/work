@@ -1,7 +1,7 @@
 module.exports = {
   base: '/work/',
   title: "reco-work",
-  description: '好记性不如烂笔头，不是不会，是真记不住 ^_^',
+  description: '记下来，永远不要相信自己的脑子！',
   dest: 'public',
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
