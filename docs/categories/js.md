@@ -1,8 +1,8 @@
 ---
-title: react
+title: js
 isCategories: true
 sidebar: false
 isComment: false
 ---
 
-## React
+## JavaScript
