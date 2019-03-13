@@ -11,14 +11,11 @@
 <body>
     <input id="abc" x-webkit-speech lang="zh-CN">
 <script>
-const arr = [1, 2, 3]
-
-const newArr = arr.map((item, index) => {
-  return item * 2
-})
-
-console.log(arr)
-console.log(newArr)
+for (let i = 0; i< 4; i++) {
+  setTimeout(() => {
+    console.log(i)
+  }, i * 1000)
+}
 </script>
 </body>
 </html>
