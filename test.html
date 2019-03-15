@@ -4,15 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>三栏布局</title>
   <style>
+    #a {
+      width: 200px;
+      height: 200px;
+      border: 1px solid #444;
+    }
+    #b {
+      width: 100px;
+      height: 100px;
+      border: 1px solid red;
+    }
   </style>
 </head>
 <body>
-  <script src="//baidu.com/test.js"></script>
-  <script>
-    (new Image()).src = 'http://baidu.com/testke?a=123'
-  </script>
+<div id="a" data-a="a">
+  <div id="b" data-b="b"></div>
+</div>
+<script>
+const a = document.querySelector('#a')
+a.addEventListener('click', e => {
+  // console.log('currentTarget', e.currentTarget.dataset)
+  // console.log('target', e.target.dataset)
+  console.log(a.dataset)
+
+}, false)
+</script>
+<script>
 </script>
 </body>
 </html>
