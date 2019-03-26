@@ -48,10 +48,10 @@ module.exports = {
     // author
     author: 'reco_luan',
     // valine config
-    // valineConfig: {
-    //   appId: 'Q6hMeY2PSaM9FMkXetzoJoU5-gzGzoHsz',// your appId
-    //   appKey: 'iLQlev5jo2Cm5pLcI0z3qhtr', // your appKey
-    // }
+    valineConfig: {
+      appId: '2ryNq3PdgM4xW0ojNqmTxDyJ-gzGzoHsz',// your appId
+      appKey: '2HyQmOPsXSB2PLDWyzbApEqP', // your appKey
+    }
   },
   markdown: {
     lineNumbers: true
