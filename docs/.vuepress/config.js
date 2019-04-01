@@ -24,6 +24,7 @@ module.exports = {
             { text: 'React', link: '/categories/react' },
             { text: 'Jquery', link: '/categories/jquery' },
             { text: 'NodeJS', link: '/categories/nodejs' },
+            { text: 'Webpack', link: '/categories/webpack' },
           ] },
           {
             text: '其他', items: [
