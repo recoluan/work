@@ -36,6 +36,7 @@ module.exports = {
         ]
       },
       { text: '标签', link: '/tags/', icon: 'reco-tag' },
+      { text: 'TimeLine', link: '/timeLine/', icon: 'reco-date' },
       { text: '午后南杂', link: 'https://recoluan.gitlab.io', icon: 'reco-messag' },
     ],
     logo: '/head.png',
@@ -52,7 +53,13 @@ module.exports = {
     // valineConfig: {
     //   appId: 'Q6hMeY2PSaM9FMkXetzoJoU5-gzGzoHsz',// your appId
     //   appKey: 'iLQlev5jo2Cm5pLcI0z3qhtr', // your appKey
-    // }
+    // },
+    // 密钥
+    keyPage: {
+      keys: ['930105'],
+      color: '#42b983',
+      lineColor: '#42b983'
+    }
   },
   markdown: {
     lineNumbers: true
