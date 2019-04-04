@@ -49,11 +49,6 @@ module.exports = {
     lastUpdated: 'Last Updated', // string | boolean
     // author
     author: 'reco_luan',
-    // valine config
-    // valineConfig: {
-    //   appId: 'Q6hMeY2PSaM9FMkXetzoJoU5-gzGzoHsz',// your appId
-    //   appKey: 'iLQlev5jo2Cm5pLcI0z3qhtr', // your appKey
-    // },
     // 密钥
     keyPage: {
       keys: ['930105'],
