@@ -2,7 +2,7 @@
 home: true
 heroImage: /hero.png
 isShowTitleInHome: true
-actionText: About Me →
+actionText: About Me
 actionLink: /views/personalInfo/
 features:
 - title: 这里记录的啥呢？

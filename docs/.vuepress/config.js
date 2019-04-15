@@ -11,31 +11,6 @@ module.exports = {
   themeConfig: {
     nav: [
       { text: '首页', link: '/', icon: 'reco-home' },
-      { text: '分类', 
-        icon: 'reco-category',
-        items: [
-          { text: '原生', items: [
-            { text: 'HTML', link: '/categories/html' },
-            { text: 'CSS', link: '/categories/css' },
-            { text: 'JS', link: '/categories/js' },
-          ] },
-          { text: '框架', items: [
-            { text: 'Vue', link: '/categories/vue' },
-            { text: 'React', link: '/categories/react' },
-            { text: 'Jquery', link: '/categories/jquery' },
-            { text: 'NodeJS', link: '/categories/nodejs' },
-            { text: 'Webpack', link: '/categories/webpack' },
-          ] },
-          {
-            text: '其他', items: [
-              { text: 'Other', link: '/categories/other' },
-              { text: 'Tool', link: '/categories/tool' },
-              { text: 'Interview', link: '/categories/interview' }
-            ]
-          }
-        ]
-      },
-      { text: '标签', link: '/tags/', icon: 'reco-tag' },
       { text: 'TimeLine', link: '/timeLine/', icon: 'reco-date' },
       { text: '午后南杂', link: 'https://recoluan.gitlab.io', icon: 'reco-messag' },
     ],
@@ -52,9 +27,20 @@ module.exports = {
     // 密钥
     keyPage: {
       keys: ['930105'],
-      color: '#42b983',
-      lineColor: '#42b983'
-    }
+      color: '#424242',
+      lineColor: '#424242'
+    },
+    // 博客设置
+    blogConfig: {
+      category: {
+        location: 2, // 在导航栏菜单中所占的位置，默认2
+        text: 'Category' // 默认 “分类”
+      },
+      tag: {
+        location: 3, // 在导航栏菜单中所占的位置，默认3
+        text: 'Tag' // 默认 “标签”
+      }
+    },
   },
   markdown: {
     lineNumbers: true
