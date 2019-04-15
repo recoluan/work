@@ -6,6 +6,7 @@ pages:
 #    - node_modules/
 
  script:
+ - npm cache verify  
  - npm install
  - npm run build
  artifacts:
