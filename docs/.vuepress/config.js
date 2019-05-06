@@ -1,5 +1,5 @@
 module.exports = {
-  base: '/work/',
+  // base: '/work/',
   title: "reco-work",
   description: '记下来，永远不要相信自己的脑子！',
   dest: 'public',
