@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "vuepress": "^1.0.0-alpha.46",
-    "vuepress-theme-reco": "^1.0.0-alpha.12",
+    "vuepress-theme-reco": "^1.0.0-alpha.16",
     "leancloud-storage": "^3.10.1",
     "valine": "^1.3.4"
   }
