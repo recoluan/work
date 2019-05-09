@@ -1,15 +1,20 @@
 {
-  "name": "reco-work",
-  "description": "recoluan's work notes",
-  "repository": "http://recoluan.gitlab.io/work",
+  "name": "afternoon-grocery-store",
+  "version": "1.0.0",
+  "description": "recoluan's blog",
+  "main": "index.js",
+  "repository": "http://recoluan.gitlab.io",
   "author": "reco_luan",
+  "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vuepress dev docs",
     "build": "vuepress build docs"
   },
   "dependencies": {
-    "vuepress": "^1.0.0-alpha.47",
-    "vuepress-theme-reco": "^1.0.0-alpha.19"
+    "vuepress": "1.0.0-alpha.47",
+    "vuepress-theme-reco": "1.0.0-alpha.18",
+    "@vuepress/plugin-medium-zoom": "1.0.0-alpha.0",
+    "vuepress-plugin-flowchart": "1.4.3"
   }
 }
