@@ -25,11 +25,11 @@ module.exports = {
     // author
     author: 'reco_luan',
     // 密钥
-    // keyPage: {
-    //   keys: ['930105'],
-    //   color: '#424242',
-    //   lineColor: '#424242'
-    // },
+    keyPage: {
+      keys: ['930105'],
+      color: '#424242',
+      lineColor: '#424242'
+    },
     // 博客设置
     blogConfig: {
       category: {
