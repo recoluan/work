@@ -10,7 +10,6 @@ module.exports = {
   theme: 'reco',
   themeConfig: {
     nav: [
-      { text: '首页', link: '/', icon: 'reco-home' },
       { text: 'TimeLine', link: '/timeLine/', icon: 'reco-date' },
       { text: '午后南杂', link: 'https://recoluan.gitlab.io', icon: 'reco-messag' },
     ],
