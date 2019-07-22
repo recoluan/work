@@ -44,5 +44,5 @@ module.exports = {
   markdown: {
     lineNumbers: true
   },
-  plugins: ['@vuepress/medium-zoom', 'flowchart'] 
+  plugins: ['@vuepress/plugin-medium-zoom', 'flowchart'] 
 }  
