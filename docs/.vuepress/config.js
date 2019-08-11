@@ -10,6 +10,7 @@ module.exports = {
   theme: 'reco',
   themeConfig: {
     nav: [
+      { text: 'Home', link: '/', icon: 'reco-home' },
       { text: 'TimeLine', link: '/timeLine/', icon: 'reco-date' },
       { text: '午后南杂', link: 'https://recoluan.gitlab.io', icon: 'reco-messag' },
     ],
@@ -44,5 +45,5 @@ module.exports = {
   markdown: {
     lineNumbers: true
   },
-  plugins: ['@vuepress/medium-zoom', 'flowchart'] 
+  plugins: ['@vuepress/plugin-medium-zoom', 'flowchart'] 
 }  
