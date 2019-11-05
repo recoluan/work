@@ -35,8 +35,8 @@ module.exports = {
     // 密钥
     keyPage: {
       keys: ['930105'],
-      color: '#424242',
-      lineColor: '#424242'
+      color: '#3eaf7c',
+      lineColor: '#3eaf7c'
     },
     // 博客设置
     blogConfig: {
