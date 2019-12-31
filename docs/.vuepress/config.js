@@ -22,7 +22,7 @@ module.exports = {
       { text: 'TimeLine', link: '/timeLine/', icon: 'reco-date' },
       { text: '午后南杂', link: 'https://recoluan.gitlab.io', icon: 'reco-messag' },
     ],
-    logo: '/head.png',
+    authAvatar: '/head.png',
     //search config 
     search: true,
     searchMaxSuggestions: 10,
