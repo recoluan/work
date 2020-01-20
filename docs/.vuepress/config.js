@@ -1,3 +1,5 @@
+const themeConfig = require('./config/theme/')
+
 module.exports = {
   // base: '/work/',
   title: "reco-work",
@@ -16,40 +18,7 @@ module.exports = {
     ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
   ],
   theme: 'reco',
-  themeConfig: {
-    nav: [
-      { text: 'Home', link: '/', icon: 'reco-home' },
-      { text: 'TimeLine', link: '/timeLine/', icon: 'reco-date' },
-      { text: '午后南杂', link: 'https://recoluan.gitlab.io', icon: 'reco-messag' },
-    ],
-    authAvatar: '/head.png',
-    //search config 
-    search: true,
-    searchMaxSuggestions: 10,
-    // auto create sidebar
-    sidebar: 'auto',
-    // last Updated Date
-    lastUpdated: 'Last Updated', // string | boolean
-    // author
-    author: 'reco_luan',
-    // 密钥
-    keyPage: {
-      keys: ['930105'],
-      color: '#3eaf7c',
-      lineColor: '#3eaf7c'
-    },
-    // 博客设置
-    blogConfig: {
-      category: {
-        location: 2, // 在导航栏菜单中所占的位置，默认2
-        text: 'Category' // 默认 “分类”
-      },
-      tag: {
-        location: 3, // 在导航栏菜单中所占的位置，默认3
-        text: 'Tag' // 默认 “标签”
-      }
-    },
-  },
+  themeConfig,
   markdown: {
     lineNumbers: true
   },
