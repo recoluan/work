@@ -12,7 +12,7 @@ module.exports = {
   },
   // author
   author: 'reco_luan',
-  authAvatar: '/head.png',
+  authorAvatar: '/head.png',
   // 密钥
   keyPage: {
     keys: ['930105'],
