@@ -15,8 +15,6 @@ module.exports = {
   authorAvatar: '/head.png',
   // 密钥
   keyPage: {
-    keys: ['930105'],
-    color: '#3eaf7c',
-    lineColor: '#3eaf7c'
+    keys: ['a68d13eea2553f3f99f672d35169998f']
   }
 }
