@@ -7,9 +7,19 @@
 </head>
 <body>
   <script>
-    
+    const getMaxProfit = function (arr) {
+      let minPrice = arr[0]
+      let maxProfit = 0
+      for (let i = 0; i < arr.length; i++) {
+        const currentPrice = arr[i]
+        minPrice = Math.min(minPrice, currentPrice)
+        const potentialProfit = currentPrice - minPrice
+        maxProfit = Math.max(maxProfit, potentialProfit)
+      }
+      return maxProfit
+    }
 
-    console.log(findMaxDuplicateCharRegex('abcabaca'))
+    console.log(getMaxProfit([1, 3, 2]))
   </script>
 </body>
 </html>
