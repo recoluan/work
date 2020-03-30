@@ -5,6 +5,7 @@ module.exports = {
       collapsable: false,
       sidebarDepth: 2,
       children: [
+        'algorithms/',
         'algorithms/2020/032701',
         'algorithms/2020/032702',
         'algorithms/2020/032703',
