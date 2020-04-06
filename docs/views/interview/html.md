@@ -138,14 +138,14 @@ article与section的嵌套方式一般如下：
 
 **4. 总结：**
 
-在H5中，article元素可以看成是一种特殊类型的section元素，它比section元素更强调独立性。即section元素强调分段或分块，而article强调独立性。具体来说，如果一块内容相对来说比较独立的、完整的时候，应该使用article元素，但是如果你想将一块内容分成几段的时候，应该使用section元素。另外，在HTML5中，div元素变成了一种容器，当使用CSS样式的时候，可以对这个容器进行一个总体的CSS样式的套用。
+在H5中，article元素可以看成是一种特殊类型的section元素，它比section元素更强调独立性。即section元素强调分段或分块，而article强调独立完整性。具体来说，如果一块内容相对来说比较独立的、完整的时候，应该使用article元素，但是如果你想将一块内容分成几段的时候，应该使用section元素。另外，在HTML5中，div元素变成了一种容器，当使用CSS样式的时候，可以对这个容器进行一个总体的CSS样式的套用。
 
 ## HTML5与HTML4的不同之处 
 
 - ⽂件类型声明（<!DOCTYPE>）仅有⼀型：<!DOCTYPE HTML>。 
 - 新的解析顺序：不再基于SGML。 
 - 新的元素：section, video, progress, nav, meter, time, aside, canvas, command, datalist, details, embed, figcaption, figure, footer, header, hgroup, keygen, mark, output, rp, rt, ruby, source, summary, wbr。 input
-- 元素的新类型：date, email, url等等。 
+- input 元素的新类型：date, email, url等等。 
 - 新的属性：ping（⽤于a与area）, charset（⽤于meta）, async（⽤于script）。 
 - 全域属性：id, tabindex, repeat。 
 - 新的全域属性：contenteditable, contextmenu, draggable, dropzone, hidden, spellcheck。 
@@ -160,6 +160,19 @@ meta 标签由 name 和 content 两个属性来定义，来描述⼀个 HTML ⽹
 - charset，⽤于描述HTML⽂档的编码形式 
     ``` html
     <meta charset="UTF-8" > 
+    ```
+- 许多 `<meta>` 元素包含了name 和 content 特性
+    ```html
+    <!-- 在移动设备浏览器上，禁用缩放（zooming）功能，用户只能滚动屏幕。 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 告诉搜索引擎，当前页面的主要内容是xxx。 -->
+    <meta name="description" content="a beautiful theme">
+    <!-- 告诉搜索引擎，当前页面的关键字。 -->
+    <meta name="keywords" content="vuepress,theme">
+    <!-- 告诉搜索引擎，标注网站作者是谁。 -->
+    <meta name="author" content="reco_luan">
+    <!-- 标注网站的版权信息。 -->
+    <meta name="copyright" content="2020 reco_luan">
     ```
 - http-equiv，顾名思义，相当于http的⽂件头作⽤,⽐如下⾯的代码就可以设置http的缓存过期⽇期
     ```html
@@ -220,19 +233,6 @@ meta 标签由 name 和 content 两个属性来定义，来描述⼀个 HTML ⽹
     ```html
     <!-- 说明：显示窗口的设定，这样设定会强制页面在当前窗口以独立页面显示，用来防止别人在框架里调用自己的页面。 -->
     <meta http-equiv="Window-target" content="_top">
-    ```
-- 许多 `<meta>` 元素包含了name 和 content 特性
-    ```html
-    <!-- 在移动设备浏览器上，禁用缩放（zooming）功能，用户只能滚动屏幕。 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <!-- 告诉搜索引擎，当前页面的主要内容是xxx。 -->
-    <meta name="description" content="a beautiful theme">
-    <!-- 告诉搜索引擎，当前页面的关键字。 -->
-    <meta name="keywords" content="vuepress,theme">
-    <!-- 告诉搜索引擎，标注网站作者是谁。 -->
-    <meta name="author" content="reco_luan">
-    <!-- 标注网站的版权信息。 -->
-    <meta name="copyright" content="2020 reco_luan">
     ```
 - 自定义meta
     ```html
@@ -324,7 +324,7 @@ cookies、localstorage、sessionstorage、Web SQL、IndexedDB
 - Web SQL：2010年被W3C废弃的本地数据库数据存储⽅案，但是主流浏览器（⽕狐除外）都已经有了相关的实 现，web sql类似于SQLite，是真正意义上的关系型数据库，⽤sql进⾏操作，当我们⽤JavaScript时要进⾏转换， 较为繁琐。 
 - IndexedDB： 是被正式纳⼊HTML5标准的数据库储存⽅案，它是NoSQL数据库，⽤键值对进⾏储存，可以进⾏快 速读取操作，⾮常适合web场景，同时⽤JavaScript进⾏操作会⾮常⽅便。
 
-参考链接： 
+参考链接：
 
 1. [src与href](https://blog.csdn.net/Panda_m/article/details/78456358)
 2. [语义化](https://www.zhihu.com/question/20455165)
@@ -332,6 +332,6 @@ cookies、localstorage、sessionstorage、Web SQL、IndexedDB
 4. [响应式图⽚MDN](https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images)
 5. [张鑫旭-srcset释义](https://www.zhangxinxu.com/wordpress/2014/10/responsive-images-srcset-size-w-descriptor/)
 6. [picture元素-MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/picture)
-7. [<head>标签里有什么? Metadata-HTML中的元数据](https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML)
+7. [head 标签里有什么? Metadata-HTML中的元数据](https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML)
 8. [img 的 srcset、sizes 属性和 picture 元素](https://www.jianshu.com/p/607567e488fc)
 9. [响应式图片srcset全新释义sizes属性w描述符](https://www.zhangxinxu.com/wordpress/2014/10/responsive-images-srcset-size-w-descriptor/)

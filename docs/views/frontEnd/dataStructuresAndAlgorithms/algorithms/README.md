@@ -3,7 +3,7 @@ title: 算法基础知识汇总
 date: 2019-03-30
 ---
 
-## 时间复杂度和空间复杂度分析
+## 复杂度分析
 
 复杂度使用 `Big O notation` 表示，比如 `O(1)` 常数复杂度。
 
@@ -203,5 +203,65 @@ function fib4 (n) {
     next = result
   }
   return next
+}
+```
+
+## 数组、链表和跳表
+
+### 数组
+
+当声明一个数组的时候就是在内存中开辟了一段连续的地址，数组的每一个值都对应一个指针，所以查找某个值时间复杂度为 O(1)。
+
+当删除和插入某个值得时候，就需要挪动要改变的值得后面的所有值。当然也分情况，当在头部插入一个值，后面的所有值都要向后挪动，所以这时的时间复杂度为 O(n)；当在尾部插入一个值，前面的值都不需要挪动，所以这时的时间复杂度为 O(1)。
+
+### 链表
+
+- [JS中的算法与数据结构——链表(Linked-list)](https://www.jianshu.com/p/f254ec665e57)
+
+## 十大排序
+
+### 冒泡排序
+
+::: tip 算法描述
+1. 比较相邻元素，如果后者比前者大则交换位置；
+2. 从头开始向后依次进行，这样在最后元素就是最大的数；
+3. 针对所有的元素，重复以上的步骤(除去每一轮的最后一个：因为每次比较完成后的最后一个数在所比较的所有数里，一定是最大的，所以下一次循环比较就无需比较上一轮的最后一个数)；
+4. 重复步骤1～3，直到排序完成。
+:::
+
+#### 实现方法
+
+```js
+function bubbleSort (arr) {
+  let length = arr.length
+  for (let i = 0; i < length; i++) {
+    for (let j = 0; j < length - i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
+      }
+    }
+  }
+  return newArr
+}
+```
+
+上面的方法，每次循环都是将上次的循环数据的最后一个数据省略掉，这样还是会有一些重复运算。每次排序后，记录下最后一次交换的位置，因为在这之后的数字已经排好序了，因此不需要再次进行比较。
+
+```js
+function bubbleSort (arr) {
+  let lastIndex = arr.length - 1
+  while (lastIndex > 0) {
+    let pos = 0
+    for (let i = 0; i < lastIndex; i++) {
+      if (arr[i] > arr[i + 1]) {
+        pos = i
+        let temp = arr[i + 1]
+        arr[i + 1] = arr[i]
+        arr[i] = temp
+      }
+    }
+    lastIndex = pos
+  }
+  return arr
 }
 ```

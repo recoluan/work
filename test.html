@@ -4,48 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    .wrapper {
+      width: 200px;
+      height: 200px;
+      background-color: aqua;
+    }
+    .inner {
+      position: relative;
+      width:100px;
+      height: 100px;
+      z-index: -1;
+    }
+  </style>
 </head>
 <body>
-  <script>
-    function fib1 (n) {
-  const arr = [0, 1, 1]
-  if (n < 2) return arr[n]
-  let prev = 0
-  let next = 1
-  for (let i = 2; i < n +1;i++) {
-    let result = prev + next
-    prev = next
-    next = result
-  }
-  return next
-}
-
-    function fib2 (n) {
-      const arr = [0, 1, 1]
-      if (n < 2) return arr[n]
-      const prev = arr[n - 1] ? arr[n - 1] : fib2(n - 1)
-      const next = arr[n - 2] ? arr[n - 2] : fib2(n - 2)
-      return prev + next
-    }
-
-    function fib3 (n) {
-      const arr = [0, 1, 1]
-      if (n < 2) return arr[n]
-      for (let i = 2; i < n +1;i++) {
-        arr[i] = arr[i-1] + arr[i-2]
-      }
-      return arr[n]
-    }
-    console.time('solation')
-    console.log(fib1(30))
-    console.timeEnd('solation')
-    // 数学公式 O(1)
-    console.time('solation2')
-    console.log(fib2(30))
-    console.timeEnd('solation2')
-    console.time('solation3')
-    console.log(fib3(30))
-    console.timeEnd('solation3')
-  </script>
+<div class="wrapper">
+  <div class="inner">abc</div>
+</div>
 </body>
 </html>
