@@ -271,8 +271,42 @@ box-sizing: border-box // 怪异盒模型
 box-sizing: padding-box // ⽕狐的私有模型，没⼈⽤
 ```
 
+## BFC
+
+在解释BFC之前，先说一下文档流。我们常说的文档流其实分为定位流、浮动流和普通流三种。而普通流其实就是指BFC中的FC。FC是formatting context的首字母缩写，直译过来是格式化上下文，它是页面中的一块渲染区域，有一套渲染规则，决定了其子元素如何布局，以及和其他元素之间的关系和作用。常见的FC有BFC、IFC，还有GFC和FFC。
+
+### 是什么
+
+BFC是block formatting context，也就是块级格式化上下文，它是⼀块独⽴的区域，让处于BFC内部的元素与外部的元素互相隔离。
+
+### 触发条件
+
+- 根元素，即HTML元素
+- float的值不为none
+- overflow的值不为visible
+- display的值为inline-block、table-cell、table-caption
+- position的值为absolute或fixed
+
+### 作用
+
+1. 清除浮动
+2. 阻止margin重叠
+3. 两栏布局，防⽌⽂字环绕等
+
+## 为什么有时候⼈们⽤translate来改变位置⽽不是定位？ 
+
+translate()是transform的⼀个值。改变transform或opacity不会触发浏览器重新布局（reflow）或重绘（repaint），只会触发复合（compositions）。
+
+⽽改变绝对定位会触发重新布局，进⽽触发重绘和复合。transform使浏览器为元素创建⼀个 GPU 图层，但改变绝对定位会使⽤到 CPU。 因此translate()更⾼效，可以缩短平滑动画的绘制时间。 ⽽translate改变位置时，元素依然会占据其原始空间，绝对定位就不会发⽣这种情况。
+
+> 拓展阅读: [CSS3 3D transform变换-张鑫旭](https://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animate-transition/)
+
+## 伪类和伪元素的区别是什么？
+
+- 伪类（pseudo-class）其实就是一种选择器。是⼀个以冒号(:)作为前缀，被添加到⼀个选择器末尾的关键字，用于给某些特定的元素添加样式时使用。
+- 伪元素其实是一种dom。⽤于创建⼀些不在⽂档树中的元素，并为其添加样式。⽐如说，我们可以通过::before来在⼀个元素前增加⼀些⽂本，并为这些⽂本添加样式。虽然⽤户可以看到这些⽂本，但是这些⽂本实际上不在⽂档树中。
 
 参考：
 1. [CSS深入理解vertical-align和line-height的基友关系](https://www.zhangxinxu.com/wordpress/2015/08/css-deep-understand-vertical-align-and-line-height/)
-2. [字母’x’在CSS世界中的角色和故事](https://www.zhangxinxu.com/wordpress/2015/06/about-letter-x-of-css/)
+2. [字母 'x' 在CSS世界中的角色和故事](https://www.zhangxinxu.com/wordpress/2015/06/about-letter-x-of-css/)
 3. [CSS3--clip-path练习](https://www.cnblogs.com/liangdecha/p/9629150.html)
