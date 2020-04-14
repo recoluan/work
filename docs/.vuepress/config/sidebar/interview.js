@@ -2,6 +2,9 @@ module.exports = {
   '/views/interview/': [
     'html',
     'css',
-    'js'
+    'js',
+    'http',
+    'tcp',
+    'dom'
   ]
 }

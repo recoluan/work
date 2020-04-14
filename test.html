@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
-  <script>
-    function test () {
-      console.log(a, b, c)
-      var a = 1
-      var b = function () {}
-      function c () {}
-    }
-    test()
+  <ul id="parent">
+    <li class="child">one</li>
+    <li class="child">two</li>
+    <li class="child">three</li>
+  </ul> 
+  <script type="text/javascript">
+    const dom = document.querySelector('#parent')
+    //⽗元素绑定事件，代理⼦元素的点击事件
+    dom.addEventListener('click', function(event) {
+      const e = event || window.event
+      const curTarget= e.target || e.srcElement
+      if (curTarget.tagName.toLowerCase() == 'li') {
+        //事件处理
+        console.log(event)
+      }
+    }, false)
   </script>
 </body>
+
 </html>

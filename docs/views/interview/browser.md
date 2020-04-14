@@ -1,0 +1,3 @@
+- [CSS will-change 属性](https://www.cnblogs.com/yuzhongwusan/p/4186405.html)
+- [性能优化之你真的懂回流、重绘与合成层吗？](https://www.jianshu.com/p/f78ccbbd7c42)
+- [Comet技术详解：基于HTTP长连接的Web端实时通信技术](http://www.52im.net/thread-334-1-1.html)
