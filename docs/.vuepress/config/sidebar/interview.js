@@ -5,6 +5,7 @@ module.exports = {
     'js',
     'http',
     'tcp',
-    'dom'
+    'dom',
+    'vue'
   ]
 }
