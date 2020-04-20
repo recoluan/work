@@ -8,8 +8,17 @@
 </head>
 
 <body>
-  <script type="text/javascript">
-    
+  <script>
+    let hd = `
+      https://www.houdunren.com
+      http://houdunwang.com
+      https://hdcms.com
+    `;
+
+    let reg = /https?:\/\/((?:\w+\.)?\w+\.(?:com|org|cn))/gi;
+    while ((v = reg.exec(hd))) {
+      console.dir(v);
+    }
   </script>
 </body>
 
