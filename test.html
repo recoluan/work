@@ -7,18 +7,19 @@
   <title>Document</title>
 </head>
 
-<body>
+<body style="background-color: #000;">
   <script>
-    let hd = `
-      https://www.houdunren.com
-      http://houdunwang.com
-      https://hdcms.com
-    `;
-
-    let reg = /https?:\/\/((?:\w+\.)?\w+\.(?:com|org|cn))/gi;
-    while ((v = reg.exec(hd))) {
-      console.dir(v);
+    var str = "1234567"
+    function tansformStr (str) {
+      const erg = /(\d+)(?=\d{3})/g
+      let result = str;
+      while (erg.exec(result)) {
+        result = result.replace(erg, '$1,')
+      }
+      return result
     }
+    tansformStr(str)
+    
   </script>
 </body>
 
