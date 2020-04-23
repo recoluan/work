@@ -8,18 +8,57 @@
 </head>
 
 <body style="background-color: #000;">
+  <div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
   <script>
-    var str = "1234567"
-    function tansformStr (str) {
-      const erg = /(\d+)(?=\d{3})/g
-      let result = str;
-      while (erg.exec(result)) {
-        result = result.replace(erg, '$1,')
+    // function throttle (fn, delay) {
+    //   let start = Date.now()
+
+    //   return function (...args) {
+    //     let end = Date.now()
+    //     if (end - start >= delay) {
+    //       fn(...args)
+    //       start = end
+    //     }
+    //   }
+    // }
+
+    // function throttle (fn, delay) {
+    //   let timer = null
+
+    //   return function(...args) {
+    //     if (!timer) {
+    //       timer = setTimeout(() => {
+    //         fn(...args)
+    //         timer = null
+    //       }, delay)
+    //     }
+    //   }
+    // }
+
+    function throttle (fn, delay) {
+      let start = Date.now()
+      let timer = null
+
+      return function (...args) {
+        if (timer) clearTimeout(timer)
+        let end = Date.now()
+        if (end - start > delay) {
+          fn(...args)
+          start = end
+        } else {
+          timer = setTimeout(() => {
+            fn(...args)
+            timer = null
+          }, delay);
+        }
       }
-      return result
     }
-    tansformStr(str)
-    
+
+    function fn (e) {
+      console.log(e)
+    }
+
+    window.addEventListener('scroll', throttle(fn, 1000))
   </script>
 </body>
 
