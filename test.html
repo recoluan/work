@@ -4,61 +4,122 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <style>
+    .clearfix::after {
+      display: block;
+      width: 0;
+      content: '';
+      clear: both;
+    }
+
+    .wrap {
+      margin: 50px auto;
+      width: 500px;
+      height: 500px;
+      box-shadow: 0 0 5px #999;
+    }
+
+    .tab .t-item {
+      cursor: pointer;
+      float: left;
+      width: 25%;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+    }
+
+    .tab .t-item.active {
+      background: #999;
+      color: #fff;
+    }
+
+    .page {
+      position: relative;
+      width: 100%;
+      height: 450px;
+    }
+
+    .page .p-item {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      line-height: 450px;
+      display: none;
+    }
+
+    .page .p-item.active {
+      display: block;
+    }
+  </style>
 </head>
 
-<body style="background-color: #000;">
-  <div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+<body>
+  <div class="wrap">
+    <div class="tab clearfix">
+      <div class="t-item active">选项1</div>
+      <div class="t-item">选项2</div>
+      <div class="t-item">选项3</div>
+      <div class="t-item">选项4</div>
+    </div>
+    <div class="page">
+      <div class="p-item active">页面1</div>
+      <div class="p-item">页面2</div>
+      <div class="p-item">页面3</div>
+      <div class="p-item">页面4</div>
+    </div>
+  </div>
   <script>
-    // function throttle (fn, delay) {
-    //   let start = Date.now()
+    ; (function ()
+    {
+      const Tab = function ()
+      {
+        this.tab = document.querySelector('.tab')
+        this.tabs = document.querySelectorAll('.t-item')
+        this.pages = document.querySelectorAll('.p-item')
+      }
 
-    //   return function (...args) {
-    //     let end = Date.now()
-    //     if (end - start >= delay) {
-    //       fn(...args)
-    //       start = end
-    //     }
-    //   }
-    // }
+      Tab.prototype = {
+        init()
+        {
+          this.bindEvent()
+        },
+        bindEvent()
+        {
+          this.tab.addEventListener('click', this.tabClick.bind(this), false)
+        },
+        tabClick(e)
+        {
+          var e = e || window.event,
+            tar = e.target || e.srcElement,
+            className = tar.className,
+            oTabs = this.tabs,
+            oPages = this.pages,
+            len = oTabs.length,
+            thisIndex = Array.prototype.indexOf.call(oTabs, tar), // oTabs 是伪数组
+            // thisIndex = Array.from(oTabs).indexOf(tar), // 处理伪数组
+            // thisIndex = [...oTabs].indexOf(tar), // 处理伪数组
+            tItem, pItem;
 
-    // function throttle (fn, delay) {
-    //   let timer = null
+          if (className === 't-item') {
+            for (var i = 0; i < len; i++) {
+              tItem = oTabs[i];
+              pItem = oPages[i];
 
-    //   return function(...args) {
-    //     if (!timer) {
-    //       timer = setTimeout(() => {
-    //         fn(...args)
-    //         timer = null
-    //       }, delay)
-    //     }
-    //   }
-    // }
+              tItem.className = 't-item';
+              pItem.className = 'p-item';
+            }
 
-    function throttle (fn, delay) {
-      let start = Date.now()
-      let timer = null
-
-      return function (...args) {
-        if (timer) clearTimeout(timer)
-        let end = Date.now()
-        if (end - start > delay) {
-          fn(...args)
-          start = end
-        } else {
-          timer = setTimeout(() => {
-            fn(...args)
-            timer = null
-          }, delay);
+            oTabs[thisIndex].className += ' active';
+            oPages[thisIndex].className += ' active';
+          }
         }
       }
-    }
 
-    function fn (e) {
-      console.log(e)
-    }
-
-    window.addEventListener('scroll', throttle(fn, 1000))
+      return new Tab().init()
+    })();
   </script>
 </body>
 

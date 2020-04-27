@@ -301,3 +301,42 @@ console.log(a); // { a: 1, b: 2 }
 ## 讲讲JavaScript垃圾回收是怎么做的？
 
 - [javascript垃圾回收](https://www.cnblogs.com/starof/p/6594904.html)
+
+## 最简单的一个 Event Bus
+
+```js
+class EventBus {
+  constructor () {
+    this.events = {}
+  }
+
+  $on (type, fn) {
+    if (!this.events[type]) this.events[type] = []
+    this.events[type].push(fn)
+  }
+
+  $emit (type, ...args) {
+    const events = this.events[type]
+    events.forEach(event => {
+      event.apply(this, args)
+    });
+  }
+
+  $off (type) {
+    delete this.events[type]
+  }
+}
+
+// 测试
+const eb = new EventBus()
+
+eb.$on('bus1', (...args) => {
+  console.log('bus1', args)
+})
+
+eb.$on('bus1', (...args) => {
+  console.log('bus1', args)
+})
+
+eb.$emit('bus1', 111, 222)
+```
