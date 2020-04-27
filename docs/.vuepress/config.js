@@ -1,7 +1,7 @@
 const themeConfig = require('./config/theme/')
 
 module.exports = {
-  // base: '/work/',
+  base: '/work/',
   title: "reco-work",
   description: 'Keep your head up, and never stop learn!',
   dest: 'public',
