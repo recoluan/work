@@ -6,121 +6,109 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <style>
-    .clearfix::after {
-      display: block;
-      width: 0;
-      content: '';
-      clear: both;
+  <script>
+    class Camera {
+      shot (car) {
+        return {
+          num: car.num,
+          inTime: Date.now()
+        }
+      }
     }
 
-    .wrap {
-      margin: 50px auto;
-      width: 500px;
-      height: 500px;
-      box-shadow: 0 0 5px #999;
+    class Screen {
+      show (num, inTime) {
+        const stayTime = Date.now() - inTime
+        console.log(`${num} 停留 ${stayTime}`)
+      }
     }
 
-    .tab .t-item {
-      cursor: pointer;
-      float: left;
-      width: 25%;
-      height: 50px;
-      line-height: 50px;
-      text-align: center;
+    class Car {
+      constructor(num) {
+        this.num = num
+      }
     }
 
-    .tab .t-item.active {
-      background: #999;
-      color: #fff;
+    class Park {
+      constructor(floors) {
+        this.floors = floors || []
+        this.carList = {}
+        this.camera = new Camera()
+        this.screen = new Screen()
+      }
+      in (car) {
+        const info = this.camera.shot(car)
+        const i = parseInt(Math.random() * 100)
+        const place = this.floors[0].places[i]
+        place.in()
+        info.place = place
+        this.carList[car.num] = info
+      }
+      out (car) {
+        const { num, inTime, place } = this.carList[car.num]
+        this.screen.show(num, inTime)
+        place.out()
+        delete this.carList[num]
+      }
+      emptyNum () {
+        return this.floors.map(floor => {
+          return `第 ${floor.index} 层还有 ${floor.emptyFloorNum()} 个停车位`
+        }).join('\n')
+      }
+    }
+    class Floor {
+      constructor (index, places) {
+        this.index = index
+        this.places = places || []
+      }
+
+      emptyFloorNum () {
+        let num = 0
+        this.places.forEach(place => {
+          if (place.empty) num++
+        })
+        return num
+      }
+    }
+    class Place {
+      constructor () {
+        this.empty = true
+      }
+      in () {
+        this.empty = false
+      }
+      out () {
+        this.empty = true
+      }
     }
 
-    .page {
-      position: relative;
-      width: 100%;
-      height: 450px;
+    let floors = []
+    for (let i = 0; i < 3; i++) {
+      const floor = []
+      for (let j = 0; j < 100; j++) {
+        floor.push(new Place())
+      }
+      floors.push(new Floor(i, floor))
     }
+    const park = new Park(floors)
+    const car1 = new Car(100)
+    const car2 = new Car(200)
+    const car3 = new Car(300)
 
-    .page .p-item {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      line-height: 450px;
-      display: none;
-    }
+    console.log(park.emptyNum())
+    park.in(car1)
+    console.log(park.emptyNum())
 
-    .page .p-item.active {
-      display: block;
-    }
-  </style>
+    park.in(car2)
+    console.log(park.emptyNum())
+    park.out(car1)
+    console.log(park.emptyNum())
+
+  </script>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="tab clearfix">
-      <div class="t-item active">选项1</div>
-      <div class="t-item">选项2</div>
-      <div class="t-item">选项3</div>
-      <div class="t-item">选项4</div>
-    </div>
-    <div class="page">
-      <div class="p-item active">页面1</div>
-      <div class="p-item">页面2</div>
-      <div class="p-item">页面3</div>
-      <div class="p-item">页面4</div>
-    </div>
-  </div>
-  <script>
-    ; (function ()
-    {
-      const Tab = function ()
-      {
-        this.tab = document.querySelector('.tab')
-        this.tabs = document.querySelectorAll('.t-item')
-        this.pages = document.querySelectorAll('.p-item')
-      }
-
-      Tab.prototype = {
-        init()
-        {
-          this.bindEvent()
-        },
-        bindEvent()
-        {
-          this.tab.addEventListener('click', this.tabClick.bind(this), false)
-        },
-        tabClick(e)
-        {
-          var e = e || window.event,
-            tar = e.target || e.srcElement,
-            className = tar.className,
-            oTabs = this.tabs,
-            oPages = this.pages,
-            len = oTabs.length,
-            thisIndex = Array.prototype.indexOf.call(oTabs, tar), // oTabs 是伪数组
-            // thisIndex = Array.from(oTabs).indexOf(tar), // 处理伪数组
-            // thisIndex = [...oTabs].indexOf(tar), // 处理伪数组
-            tItem, pItem;
-
-          if (className === 't-item') {
-            for (var i = 0; i < len; i++) {
-              tItem = oTabs[i];
-              pItem = oPages[i];
-
-              tItem.className = 't-item';
-              pItem.className = 'p-item';
-            }
-
-            oTabs[thisIndex].className += ' active';
-            oPages[thisIndex].className += ' active';
-          }
-        }
-      }
-
-      return new Tab().init()
-    })();
-  </script>
+  <div class="wrapper"></div>
 </body>
 
 </html>
