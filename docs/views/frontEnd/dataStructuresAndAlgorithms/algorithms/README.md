@@ -220,6 +220,8 @@ function fib4 (n) {
 
 ## 十大排序
 
+- [javascript十大经典排序算法](https://blog.csdn.net/csm0912/article/details/83858275)
+
 ### 冒泡排序
 
 ::: tip 算法描述
@@ -232,36 +234,175 @@ function fib4 (n) {
 #### 实现方法
 
 ```js
+// 最简单
 function bubbleSort (arr) {
   let length = arr.length
-  for (let i = 0; i < length; i++) {
-    for (let j = 0; j < length - i - 1; j++) {
+  for (let i = length - 1; i > 0; i--) {
+    for (let j = 0; j < i; j++) {
       if (arr[j] > arr[j + 1]) {
         [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
       }
     }
   }
-  return newArr
+  return arr
 }
+
+// 这种比较绕，以第一遍循环取的不是最有边界，而是最有边界相对数组length应该减少的值
+// function bubbleSort (arr) {
+//   let length = arr.length
+//   for (let i = 0; i < length; i++) {
+//     for (let j = 0; j < length - i - 1; j++) {
+//       if (arr[j] > arr[j + 1]) {
+//         [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
+//       }
+//     }
+//   }
+//   return newArr
+// }
 ```
 
 上面的方法，每次循环都是将上次的循环数据的最后一个数据省略掉，这样还是会有一些重复运算。每次排序后，记录下最后一次交换的位置，因为在这之后的数字已经排好序了，因此不需要再次进行比较。
 
 ```js
+// 记录最后交换位置
 function bubbleSort (arr) {
   let lastIndex = arr.length - 1
   while (lastIndex > 0) {
     let pos = 0
     for (let i = 0; i < lastIndex; i++) {
       if (arr[i] > arr[i + 1]) {
-        pos = i
-        let temp = arr[i + 1]
-        arr[i + 1] = arr[i]
-        arr[i] = temp
+        pos = i;
+        [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]]
+
+        // 与上面代码同理
+        // let temp = arr[i + 1]
+        // arr[i + 1] = arr[i]
+        // arr[i] = temp
       }
     }
     lastIndex = pos
   }
   return arr
+}
+```
+
+```js
+// 结合方法一和方法二，并且正反同时比较，同时找到最大值和最小值
+// 其中 mark 的作用是，可能会出现 low 为2 high为5但是排序已经完毕的情况，此时 low 仍小于 high，但是此时已经没有交换了，mark会一直为循环开始时的0，此时就可以结束循环了（mark的这种鉴定方法同样在上面的简洁方法中使用）
+function bubbleSort (arr) {
+  let low = 0, high = arr.length - 1
+  let mark = 1
+  while (mark === 1) {
+    let minPos, maxPos;
+    mark = 0
+
+    // 正向比较
+    for (let i = low; i < high; i++) {
+      if (arr[i] > arr[i+1]) {
+        mark = 1
+        maxPos = i;
+        [arr[i], arr[i+1]] = [arr[i+1], arr[i]];
+      }
+    }
+    high = maxPos
+
+    // 反向比较
+    for (let j = high; j > low; j--) {
+      if (arr[j] < arr[j-1]) {
+        mark = 1
+        minPos = j;
+        [arr[j], arr[j-1]] = [arr[j-1], arr[j]];
+      }
+    }
+    low = minPos
+  }
+  return arr
+}
+```
+
+### 选择排序
+
+::: tip 算法描述
+1. 初始化最小值下标为0，后面数据全部循环，找出更小的数据调换位置，这样第一位就是最小的数；
+2. 然后从第二位开始，将最小值下标初始化为 1；依次循环；
+:::
+
+```js
+function selectionSort(arr){
+  let len = arr.length;
+  let minIndex = 0, pos = 0;
+
+  for (let i = 0; i < len - 1; i++) {
+    minIndex = i
+    for (let j = minIndex + 1; j < len; j++) {
+      if (arr[minIndex] > arr[j]) {
+        minIndex = j
+      }
+    }
+    [arr[minIndex], arr[i]] = [arr[i], arr[minIndex]]
+  }
+  return arr
+}
+```
+
+### 插入排序
+
+::: tip 算法描述
+1. 从第一个元素开始，该元素可以认为已经被排序
+2. 取出下一个元素，在已经排序的元素队列中从后向前扫描
+3. 如果该元素(已排序)大于新元素，将该元素移到下一位置
+4. 重复步骤3，直到找到已排序的元素小于或者等于新元素的位置
+5. 将新元素插入到该位置后
+6. 重复步骤2～5
+:::
+
+```js
+function insertionSort (arr) {
+  for (let i = 1; i < arr.length; i++) {
+    // 现将当前元素保存下来，将当前元素的位置空出来
+    let curr = arr[i]
+    let j = i - 1
+    // 如果左边比右边大，那就将左边的值赋值给右边，相当于向右挪
+    while (arr[j] > curr && j >= 0) {
+      arr[j+1] = arr[j--]
+    }
+    // 将当前元素赋值给最后空出来的位置
+    // 因为条件是j >= 0，所以最后 j 为 -1，也就是 j 是当前空位置的左边一位的下标
+    arr[j+1] = curr
+  }
+  return arr
+}
+```
+
+### 快速排序
+
+::: tip 算法描述
+1. 从数列中挑出一个元素，称为‘基准’
+2. 重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面(~~相同的数可以放到任何一边~~，相同的数不可以放到某一边，会导致出现)。在这个分区退出后，该基准就处于数列的中间位置，这个称为分区操作
+3. 递归地把小于基准值元素的子数列和大于基准值元素的子数列排序
+:::
+
+```js
+function quickSort (arr) {
+  const len = arr.length
+  if (len <= 1) return arr
+
+  const midIdx = parseInt(len / 2)
+  const midV = arr[midIdx]
+
+  let i = 0, left = [], right = []
+  while (i < len) {
+    const curr = arr[i++]
+    if (curr < midV) {
+      left.push(curr)
+      // 如果把 curr === midV 的值也 push 到 right, 如果出现 [4, 2, 3] 这样的情况，就会无限循环，所以 midV 需要单独处理
+    } else if (curr > midV) {
+      right.push(curr)
+    } else {
+      continue
+    }
+  }
+
+  return quickSort(left).concat([midV], quickSort(right))
 }
 ```
