@@ -63,7 +63,7 @@ HTML的数据属性，⽤于将数据储存于标准的HTML元素中作为额外
 - 开发者友好：使⽤语义类标签增强了可读性，开发者也能够清晰地看出⽹⻚的结构，也更为便于团队的开发和维护 
 - 机器友好：带有语义的⽂字表现⼒丰富，更适合搜索引擎的爬⾍爬取有效信息，语义类还可以⽀持读屏软件，根据 ⽂章可以⾃动⽣成⽬录 
 
-这对于简书、知乎这种富⽂本类的应⽤很重要，语义化对于其⽹站的内容传播有很⼤的帮助，但是对于功能性的web软件重要性⼤打折扣，⽐如⼀个按钮、Skeleton这种组件根本没有对应的语义，也不需要什么SEO。
+这对于简书、知乎这种富⽂本类的应⽤很重要，语义化对于其⽹站的内容传播有很⼤的帮助，但是对于功能性的web软件重要性⼤打折扣，⽐如⼀个按钮、骨架屏这种组件根本没有对应的语义，也不需要什么SEO。
 
 [所有语义化标签](https://blog.csdn.net/qq_41557320/article/details/89016584?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task)
 
@@ -150,6 +150,11 @@ article与section的嵌套方式一般如下：
 - 全域属性：id, tabindex, repeat。 
 - 新的全域属性：contenteditable, contextmenu, draggable, dropzone, hidden, spellcheck。 
 - 移除元素：acronym, applet, basefont, big, center, dir, font, frame, frameset, isindex, noframes, strike, tt
+
+补充：
+
+- HTML 4.01 中的 doctype 需要对 DTD 进行引用，因为 HTML 4.01 基于 SGML。
+- HTML 5 不基于 SGML，因此不需要对 DTD 进行引用，但是需要 doctype 来规范浏览器的行为（html 5简化了这种声明，意在告诉浏览器使用统一的标准即可）。
 
 ## 有哪些常⽤的meta标签？ 
 
