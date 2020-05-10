@@ -6,109 +6,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <script>
-    class Camera {
-      shot (car) {
-        return {
-          num: car.num,
-          inTime: Date.now()
-        }
-      }
-    }
-
-    class Screen {
-      show (num, inTime) {
-        const stayTime = Date.now() - inTime
-        console.log(`${num} 停留 ${stayTime}`)
-      }
-    }
-
-    class Car {
-      constructor(num) {
-        this.num = num
-      }
-    }
-
-    class Park {
-      constructor(floors) {
-        this.floors = floors || []
-        this.carList = {}
-        this.camera = new Camera()
-        this.screen = new Screen()
-      }
-      in (car) {
-        const info = this.camera.shot(car)
-        const i = parseInt(Math.random() * 100)
-        const place = this.floors[0].places[i]
-        place.in()
-        info.place = place
-        this.carList[car.num] = info
-      }
-      out (car) {
-        const { num, inTime, place } = this.carList[car.num]
-        this.screen.show(num, inTime)
-        place.out()
-        delete this.carList[num]
-      }
-      emptyNum () {
-        return this.floors.map(floor => {
-          return `第 ${floor.index} 层还有 ${floor.emptyFloorNum()} 个停车位`
-        }).join('\n')
-      }
-    }
-    class Floor {
-      constructor (index, places) {
-        this.index = index
-        this.places = places || []
-      }
-
-      emptyFloorNum () {
-        let num = 0
-        this.places.forEach(place => {
-          if (place.empty) num++
-        })
-        return num
-      }
-    }
-    class Place {
-      constructor () {
-        this.empty = true
-      }
-      in () {
-        this.empty = false
-      }
-      out () {
-        this.empty = true
-      }
-    }
-
-    let floors = []
-    for (let i = 0; i < 3; i++) {
-      const floor = []
-      for (let j = 0; j < 100; j++) {
-        floor.push(new Place())
-      }
-      floors.push(new Floor(i, floor))
-    }
-    const park = new Park(floors)
-    const car1 = new Car(100)
-    const car2 = new Car(200)
-    const car3 = new Car(300)
-
-    console.log(park.emptyNum())
-    park.in(car1)
-    console.log(park.emptyNum())
-
-    park.in(car2)
-    console.log(park.emptyNum())
-    park.out(car1)
-    console.log(park.emptyNum())
-
-  </script>
+  
 </head>
 
 <body>
-  <div class="wrapper"></div>
+  <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3771958983,3736755623&fm=26&gp=0.jpg" alt="">
+  <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1828898419,2771727531&fm=26&gp=0.jpg" alt="">
+  <script>
+    //一个对象，存储页面图片数量和下载的数量
+var monitorObj = {
+    imgTotal: 0,
+    imgLoaded: 0
+}
+//创建a标签，赋予图片对象相关属性，并插入body
+var createA = function (obj) {
+    var a = document.createElement("a");
+    a.id = obj.id;
+    a.target = "_blank";//注意：要在新页面打开
+    let imgDom = document.createElement('img')
+    imgDom.src = obj.url
+    let canvas = convertImageToCanvas(imgDom)
+    url = canvas.toDataURL('image/png')
+    a.href = url;
+    a.download = `${obj.id}.png`;
+
+    document.body.appendChild(a);
+}
+
+const convertImageToCanvas = function (image) {
+        let canvas = document.createElement('canvas')
+        canvas.width = image.width
+        canvas.height = image.height
+        let context = canvas.getContext('2d')
+        context.drawImage(image, 0, 0)
+        return canvas
+      }
+
+//获取页面的图片
+var imgs = document.images;
+console.log(imgs)
+//创建每个图片对象的对应a标签
+for (var i = 0; i < imgs.length;i++){
+    var obj = {
+        id: "img_" + i,
+        url: imgs[i].src
+    }
+    //统计图片数量
+    monitorObj.imgTotal++;
+
+    console.log(obj)
+    createA(obj);
+}
+//开始下载图片
+for (var i = 0; i < imgs.length; i++) {
+    if (document.getElementById("img_" + i)) {
+        //重点：触发a标签的click事件        
+        document.getElementById("img_" + i).click();
+        monitorObj.imgLoaded++; //统计已下载的图片数量
+    } 
+} 
+console.log("已下载："+monitorObj.imgLoaded + "/" + monitorObj.imgTotal);
+  </script>
 </body>
 
 </html>

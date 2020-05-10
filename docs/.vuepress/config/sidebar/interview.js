@@ -6,6 +6,8 @@ module.exports = {
     'http',
     'tcp',
     'dom',
-    'vue'
+    'vue',
+    'xingneng',
+    'toutiao'
   ]
 }
