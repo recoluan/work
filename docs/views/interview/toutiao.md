@@ -49,6 +49,73 @@ function add (...args) {
 
 #### 1. 不定宽不定高的矩形垂直居中，大小由内容撑开
 
+::: details
+
+**布局**
+
+```html
+<div class="wrapper">
+  <div class="inner">
+    <p>1</p>
+    <p>2</p>
+  </div>
+</div>
+```
+
+**方法1**
+
+```css
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  background-color: black;
+}
+.inner {
+  background-color: red;
+}
+```
+
+**方法2**
+
+```css
+.wrapper {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  width: 200px;
+  height: 200px;
+  background-color: black;
+}
+.inner {
+  /* 如果不加入这一行代码，横向是100%，而不是被内容撑开 */
+  display: inline-block;
+  background-color: red;
+}
+```
+
+**方法3**
+
+```css
+.wrapper {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-color: black;
+}
+.inner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+  background-color: red;
+}
+```
+:::
+
 #### 2. link preload 和 prefetch 的区别
 
 - [资源预加载preload和资源预读取prefetch简明学习](https://www.cnblogs.com/xiaohuochai/p/9183874.html)
@@ -122,3 +189,8 @@ export default {
 </script>
 ```
 :::
+
+### 三面
+
+[什么是面向对象（OOP）](https://www.jianshu.com/p/7a5b0043b035)
+[面向对象的JavaScript --- 多态](https://www.cnblogs.com/Roylh/p/8135777.html)

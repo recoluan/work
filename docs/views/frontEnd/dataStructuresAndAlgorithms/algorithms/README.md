@@ -218,6 +218,200 @@ function fib4 (n) {
 
 - [JS中的算法与数据结构——链表(Linked-list)](https://www.jianshu.com/p/f254ec665e57)
 
+#### 单项链表
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    class Node {
+      constructor (element) {
+        this.element = element
+        this.next = null
+      }
+    }
+
+    class LList {
+      constructor () {
+        this.head = new Node('head')
+      }
+
+      // 查
+      find (element) {
+        let currNode = this.head
+        while (currNode.element !== element) {
+          currNode = currNode.next
+        }
+        if (currNode.element = 'head') {
+          console.log('数据不存在！')
+        }
+        return currNode
+      }
+
+      // 增
+      insert (newElement, item) {
+        const newNode = new Node(newElement)
+        const currNode = this.find(item)
+        newNode.next = currNode.next
+        currNode.next = newNode
+      }
+
+      // 删除
+      delete (element) {
+        // 整个数据可能是空的
+        if (this.head.next === null) {
+          console.log('数据为空，无法删除！')
+          return
+        }
+
+        const prevNode = this.findPrev(element)
+        // 想删除的数据可能是不存在的
+        if (prevNode.next === null) {
+          console.log('数据不存在，无法删除！')
+          return
+        }
+        prevNode.next = prevNode.next.next
+      }
+
+      // 查找前一个
+      findPrev (element) {
+        let currNode = this.head
+        while (currNode.next !== null && currNode.next.element !== element ) {
+          currNode = currNode.next
+        }
+        return currNode
+      }
+
+      // 展示
+      display () {
+        let currNode = this.head
+        while (currNode.next !== null) {
+          console.log(currNode.next.element)
+          currNode = currNode.next
+        }
+      }
+    }
+
+
+    const fruits = new LList()
+
+    fruits.insert('Apple', 'head')
+    fruits.insert('Banana', 'Apple')
+    fruits.insert('Pear', 'Banana')
+
+    fruits.display()
+
+    fruits.delete('舒服舒服')
+
+    fruits.display()
+
+  </script>
+</body>
+</html>
+```
+
+**双向列表**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    class Node {
+      constructor (element) {
+        this.element = element
+        this.prev = null
+        this.next = null
+      }
+    }
+
+    class LList {
+      constructor () {
+        this.head = new Node('head')
+      }
+
+      // 查
+      find (element) {
+        let currNode = this.head
+        while (currNode && currNode.element !== element) {
+          currNode = currNode.next
+        }
+        return currNode
+      }
+
+      // 增
+      insert (newElement, item) {
+        const newNode = new Node(newElement)
+        const currNode = this.find(item)
+        newNode.next = currNode.next
+        newNode.prev = currNode
+        currNode.next = newNode
+      }
+
+      // 删除
+      delete (element) {
+        // 整个数据可能是空的
+        if (this.head.next === null) {
+          console.log('数据为空，无法删除！')
+          return
+        }
+        const currNode = this.find(element)
+        if (!currNode) return
+        if (currNode.next !== null) {
+          currNode.next.prev = currNode.prev
+        }
+        currNode.prev.next = currNode.next
+      }
+
+      // 展示
+      display () {
+        let currNode = this.head
+        while (currNode.next !== null) {
+          console.log(currNode.next.element)
+          currNode = currNode.next
+        }
+      }
+    }
+
+
+    const fruits = new LList()
+
+    fruits.insert('Apple', 'head')
+    fruits.insert('Banana', 'Apple')
+    fruits.insert('Pear', 'Banana')
+
+    fruits.display()
+
+    fruits.delete('Banana')
+
+    fruits.display()
+
+  </script>
+</body>
+</html>
+```
+
+**循环列表**
+
+循环链表和单链表相似，节点类型都是一样，唯一的区别是，在创建循环链表的时候，让其头节点的 next 属性执行它本身，即：
+
+```js
+head.next = head;
+```
+
+新增的最后一个元素的 next 始终指向 head。
+
 ## 十大排序
 
 - [javascript十大经典排序算法](https://blog.csdn.net/csm0912/article/details/83858275)

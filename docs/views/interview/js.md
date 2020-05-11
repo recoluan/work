@@ -340,3 +340,100 @@ eb.$on('bus1', (...args) => {
 
 eb.$emit('bus1', 111, 222)
 ```
+
+## instanceof 原理
+
+其实 instanceof 主要的实现原理就是只要右边变量的 prototype 在左边变量的原型链上即可。因此，instanceof 在查找的过程中会遍历左边变量的原型链，直到找到右边变量的 prototype，如果查找失败，则会返回 false，告诉我们左边变量并非是右边变量的实例。
+
+```js
+function new_instanceof (left, right) {
+  const rightProto = right.prototype
+  let leftProto = left.__proto__
+  while (true) {
+    if (leftProto === null) {
+      return false
+    }
+    if (leftProto === rightProto) {
+      return true
+    }
+    leftProto = leftProto.__proto__
+  }
+}
+
+class Parent {}
+class Child extends Parent {}
+
+const c = new Child()
+
+console.log(new_instanceof(c, Child))
+console.log(new_instanceof(c, Parent))
+console.log(new_instanceof(c, Object))
+```
+
+## 矩阵循环打印
+
+```js
+function print (m) {
+  let up = 0, left = 0, down = m.length - 1, right = m[0].length - 1
+
+  const arr = []
+
+  while (up <= down || left <= right) {
+    Array.prototype.push.apply(arr, cicle(m, up++, down--, left++, right--))
+  }
+  return arr.toString()
+}
+
+function cicle (m, up, down, left, right) {
+  console.log(up, down, left, right)
+  const arr = []
+    // top & bottom
+  let topArr = []
+  let bottomArr = []
+    // left & right
+  const leftArr = []
+  const rightArr = []
+
+  // 获取上下两行的数据
+  if (up < down) {
+    const firstLine = m[up]
+    const lastLine = m[down]
+    // + 1 是为了可以取到最后一个值
+    topArr = firstLine.slice(left, right + 1)
+    // reverse() 是因为底部行是从后往前走的
+    bottomArr = lastLine.slice(left, right + 1).reverse()
+  }
+
+  // 获取左右两列的数据
+  if (left < right) {
+    for (let i = up + 1; i < down; i++) {
+      leftArr.unshift(m[i][left])
+      rightArr.push(m[i][right])
+    }
+  }
+
+  Array.prototype.push.apply(arr, topArr.concat(rightArr, bottomArr, leftArr))
+
+  // 以下是处理边界情况
+
+  // 处理 [[1, 2, 3]] 这种情况
+  if (up === down && left < right) {
+    Array.prototype.push.apply(arr, m[0].slice(left, right + 1))
+
+  // 处理 [[1]] 这种情况
+  } else if (up === down &&left === right) {
+    arr.push(m[up][left])
+  }
+
+  return arr
+}
+
+const arr = [
+  [1,2,3,4],
+  [5,6,7,8],
+  [9,10,11,12],
+  [13,14,15,16]
+]
+
+console.log(print(arr))
+```
