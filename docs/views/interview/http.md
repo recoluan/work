@@ -224,3 +224,4 @@ https是安全版的http，因为http协议的数据都是明⽂进⾏传输的�
 - [http 中设置过期时间expires和max-age的区别](https://blog.csdn.net/yingzizizizizizzz/article/details/81347719)
 - [浅谈http中的Cache-Control](https://blog.csdn.net/u012375924/article/details/82806617)
 - [HTTP报文头Accept和Content-Type总结](https://www.cnblogs.com/shamo89/p/10151968.html)
+- [一文读懂http缓存（超详细）](https://www.jianshu.com/p/227cee9c8d15?utm_campaign=hugo&utm_medium=reader_share&utm_content=note&utm_source=weixin-friends)

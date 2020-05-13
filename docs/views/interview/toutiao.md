@@ -194,3 +194,114 @@ export default {
 
 [什么是面向对象（OOP）](https://www.jianshu.com/p/7a5b0043b035)
 [面向对象的JavaScript --- 多态](https://www.cnblogs.com/Roylh/p/8135777.html)
+
+
+
+
+
+
+
+## 跟谁学
+
+### 一面
+
+#### 1. async await
+
+::: details
+```js
+/**
+ * 期待每隔两秒输出p1、p2、p3，最后输出'done'
+ */
+const p1 = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log('p1')
+      resolve()
+    }, 2000)
+  })
+}
+const p2 = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log('p2')
+      resolve()
+    }, 2000)
+  })
+}
+const p3 = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log('p3')
+      resolve()
+    }, 2000)
+  })
+}
+
+createQueue([p1, p2, p3]).then((msg) => {
+  console.log(msg) // 'done'
+})
+
+async function createQueue(tasks) {
+  for (let i = 0; i < tasks.length; i++) {
+    const a = await tasks[i]()
+  }
+  return Promise.resolve('done')
+}
+```
+:::
+
+#### 2. 闭包实现累加
+
+::: details
+```js
+/**
+ * 闭包实现累加
+ * 有参数时相加，无参数时输出最终结果
+ * add(1)() // => 1
+ * add(1)(2)(3)(4)() //  => 10
+ */
+
+function add (num) {
+  let sum = 0
+    
+  function getVal (subNum) {
+    if (subNum !== undefined) {
+      sum+=subNum
+      return getVal
+    }
+    return sum
+  }
+
+  if (num !== undefined) {
+    sum+=args[0]
+    return getVal
+  }
+  return 0
+}
+```
+:::
+
+#### 3. git rebase 和 git merge 区别
+  - [你真的懂git rebase吗？](https://www.jianshu.com/p/6960811ac89c)
+  - [【Git】rebase 用法小结](https://www.jianshu.com/p/4a8f4af4e803)
+
+#### 4. jsx 和 template 区别
+
+  - [vue用template还是JSX？](https://www.cnblogs.com/lvonve/p/12470666.html)
+  - [vuejs/jsx](https://github.com/vuejs/jsx#installation)
+
+#### 5. proxy 为什么比 Object.definPropety
+
+## 作业帮
+
+### 一面
+
+#### 1. 生命周期
+
+### 二面
+
+#### 1. 订阅发布模式，简单实现
+#### 2. 闭包
+#### 3-1. 二叉树
+#### 3-2. 输入为一个整形数组，数组里有正数也有负数，数组中连续的一个或者多个整数组成一个子数组，每个连续子数组都有一个和。求所有连续子数组和的最大值。[1,7,-6,9,-10,2,3,4,5,-7,0,-1,23,.........]
+#### 4. 123456789->123,456,789
