@@ -217,6 +217,7 @@ function fib4 (n) {
 ### 链表
 
 - [JS中的算法与数据结构——链表(Linked-list)](https://www.jianshu.com/p/f254ec665e57)
+- []()
 
 #### 单项链表
 
@@ -316,6 +317,45 @@ function fib4 (n) {
 </html>
 ```
 
+```js
+// 合并两个有序列表
+function mergeTwoList (list1, list2) {
+  let l1 = list1.head.next
+  let l2 = list2.head.next
+
+  let l3 = new List()
+  let curr = l3.head
+
+
+  while (l1 && l2) {
+    
+    if (l1.element <= l2.element) {
+      curr.next = l1
+      l1 = l1.next
+    } else {
+      curr.next = l2
+      l2 = l2.next
+    }
+    curr = curr.next;
+  }
+
+  
+  curr.next = l1 || l2
+  return l3
+}
+
+const l1 = new List()
+l1.insert(1, 'head')
+l1.insert(4, 1)
+l1.insert(6, 4)
+const l2 = new List()
+l2.insert(2, 'head')
+l2.insert(9, 2)
+l2.insert(10, 9)
+
+console.log(mergeTwoList(l1, l2))
+```
+
 **双向列表**
 
 ```html
@@ -411,6 +451,18 @@ head.next = head;
 ```
 
 新增的最后一个元素的 next 始终指向 head。
+
+## 栈和队列的实现和特性
+
+### Stack、Queue、Deque 的原理额操作复杂度
+
+### PriorityQueue 的特点操作复杂度
+
+### 查询 Stack、Queue、Deque、PriorityQueue 的系统接口复杂度
+
+- [有效的括号](https://leetcode-cn.com/problems/valid-parentheses)
+- [最小栈](https://leetcode-cn.com/problems/min-stack)
+- [柱状图中最大的矩形(很重要)](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/)
 
 ## 十大排序
 

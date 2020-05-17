@@ -305,3 +305,41 @@ function add (num) {
 #### 3-1. 二叉树
 #### 3-2. 输入为一个整形数组，数组里有正数也有负数，数组中连续的一个或者多个整数组成一个子数组，每个连续子数组都有一个和。求所有连续子数组和的最大值。[1,7,-6,9,-10,2,3,4,5,-7,0,-1,23,.........]
 #### 4. 123456789->123,456,789
+
+## 美团
+
+### 二面
+
+1. 一个请求，请求失败后最多重复三次
+
+```js
+// function retry (fn, count) {
+//   fn().then(res => {
+//     return Promise.resolve(res)
+//   }).catch(err => {
+//     if (--count > -1) {
+//       retry(fn, count)
+//     } else {
+//       console.log('请求失败')
+//     }
+//   })
+// }
+
+async function retry (fn, count) {
+  try {
+    const result = await fn()
+  } catch (err) {
+    if (--count > -1) {
+      retry(fn, count)
+    } else {
+      console.log('请求失败')
+    }
+  }
+}
+
+function test () {
+  return Promise.reject(0)
+}
+
+retry(test, 3)
+```
