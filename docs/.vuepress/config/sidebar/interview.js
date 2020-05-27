@@ -8,6 +8,6 @@ module.exports = {
     'dom',
     'vue',
     'xingneng',
-    'toutiao'
+    'mianshiti'
   ]
 }
