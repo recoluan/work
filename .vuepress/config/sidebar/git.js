@@ -1,5 +1,5 @@
 module.exports = {
-  '/views/git/': [
+  '/docs/git/': [
     '',
     '2019/042801',
     '2019/042802',

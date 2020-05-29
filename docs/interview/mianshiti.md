@@ -362,6 +362,7 @@ retry(test, 3)
    - [MVC、MVP、MVVM、MVPVM区别](https://www.jianshu.com/p/7398ec36d591)
    - [MVC, MVP, MVVM比较以及区别(上)](https://www.cnblogs.com/JustRun1983/p/3679827.html)
    - [MVC, MVP, MVVM比较以及区别(下)](https://www.cnblogs.com/JustRun1983/p/3727560.html)
+   - [MVC，MVP 和 MVVM 模式如何选择？](https://www.jianshu.com/p/6a86f7fdc0cb)
    - [Model–view–controller](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller)
    - [Model–view–viewmodel](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel)
 2. 递归实现数组的反转

@@ -1,5 +1,5 @@
 module.exports = {
-  '/views/frontEnd/': [
+  '/docs/frontEnd/': [
     {
       title: 'Html',
       collapsable: false,

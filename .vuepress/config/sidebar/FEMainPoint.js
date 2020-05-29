@@ -1,5 +1,5 @@
 module.exports = {
-  '/views/frontEnd/FEMainPoint/': [
+  '/docs/FEMainPoint/': [
     '',
     '030302',
     '030303',

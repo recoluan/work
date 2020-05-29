@@ -1,5 +1,5 @@
 module.exports = {
-  '/views/frontEnd/dataStructuresAndAlgorithms/': [
+  '/docs/dataStructuresAndAlgorithms/': [
     {
       title: '算法',
       collapsable: false,

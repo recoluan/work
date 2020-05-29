@@ -1,5 +1,5 @@
 module.exports = {
-  '/views/interview/': [
+  '/docs/interview/': [
     'html',
     'css',
     'js',
