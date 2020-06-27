@@ -13,7 +13,8 @@ module.exports = [
   { 
     text: '工具', 
     items: [
-      { text: 'Git', link: '/docs/git/' }
+      { text: 'Git', link: '/docs/git/' },
+      { text: 'Git-Pro', link: '/docs/git/git-pro-study/1-getting-started' }
     ] 
   },
   { text: '午后南杂', link: 'https://recoluan.gitlab.io', icon: 'reco-messag' },
