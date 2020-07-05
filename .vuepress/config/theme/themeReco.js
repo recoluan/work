@@ -17,6 +17,5 @@ module.exports = {
   keyPage: {
     keys: ['a68d13eea2553f3f99f672d35169998f']
   },
-  sidebar: 'auto',
-  codeTheme: 'solarizedlight'
+  sidebar: 'auto'
 }
