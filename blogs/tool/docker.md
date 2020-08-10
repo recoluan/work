@@ -96,6 +96,64 @@ docker load -i 镜像文件
 docker tag 镜像id 新镜像名称:tag
 ```
 
+### 2.4 Docker 容器操作
+
+**1. 运行容器**
+
+```bash
+# 简单操作
+docker run 镜像的标识|镜像名称[:tag]
+
+# 常用参数
+docker run -d -p 宿主机端口:容器端口 --name 容器名称 镜像的标识|镜像名称[:tag]
+
+# -d：代表后台运行容器
+# -p 宿主机端口:容器端口：为了映射宿主机端口和容器端口
+# --name 容器名称：置顶容器名称
+```
+
+**2. 查看正在运行的容器**
+
+```bash
+docker ps [-qa]
+
+# -a：查看全部容器，包括没有运行的
+# -q：只查看容器的唯一标识
+```
+
+**3. 查看容器的日志**
+
+```bash
+docker logs -f 容器id
+
+# -f：可以滚动查看日志的最后几行
+```
+
+**4. 进入容器内部**
+
+```bash
+docker exec -it 容器id bash
+
+# 一般不建议进入容器操作命令，但是可以查看路径
+```
+
+**5. 删除容器（删除前必须先停止容器）**
+
+```bash
+docker stop 容器id
+docker rm 容器id
+
+# 删除所有容器
+docker stop $(docker ps -qa)
+docker rm $(docker ps -qa)
+```
+
+**6. 启动容器**
+
+```bash
+docker start 容器id
+```
+
 
 ## 三、Docker 应用
 
