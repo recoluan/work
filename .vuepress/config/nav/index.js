@@ -14,7 +14,8 @@ module.exports = [
     text: '工具', 
     items: [
       { text: 'Git', link: '/docs/git/' },
-      { text: 'Git-Pro', link: '/docs/git/git-pro-study/1-getting-started' }
+      { text: 'Git-Pro', link: '/docs/git/git-pro-study/1-getting-started' },
+      { text: 'docker', link: '/blogs/tool/docker' }
     ] 
   },
   { text: '午后南杂', link: 'https://recoluan.gitlab.io', icon: 'reco-messag' },
