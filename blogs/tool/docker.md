@@ -101,7 +101,7 @@ docker tag 镜像id 新镜像名称:tag
 **1. 运行容器**
 
 ```bash
-# 简单操作
+# 简单操作（如果没有镜像会先拉取镜像）
 docker run 镜像的标识|镜像名称[:tag]
 
 # 常用参数
@@ -154,8 +154,40 @@ docker rm $(docker ps -qa)
 docker start 容器id
 ```
 
-
 ## 三、Docker 应用
+
+### 3.1 准备 MySQL 容器
+
+**1. 运行 MySQL 容器**
+
+```bash
+docker run -d -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=root daocloud.io/library/mysql:5.7.4
+
+# -e MYSQL_ROOT_PASSWORD=root 设置 root 账户密码
+```
+
+### 3.2 准备 Tomcat 容器
+
+**1. 运行 Tomcat 容器，见前文**
+
+```bash
+docker run -d -p 8080:8080 --name tomcat b8
+```
+
+**2. 可以通过命令将宿主机的内容拷贝到容器内部**
+
+```bash
+docker cp 文件名称 容器id:容器内部路径
+
+# 例子
+docker cp ssm.war fe:/user/local/tomcat/webapps/
+```
+
+**3. 例子**
+
+```bash
+docker cp ssm.war fe:/user/local/tomcat/webapps/
+```
 
 ## 四、Docker 自定义镜像
 
