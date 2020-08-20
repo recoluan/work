@@ -189,6 +189,44 @@ docker cp ssm.war fe:/user/local/tomcat/webapps/
 docker cp ssm.war fe:/user/local/tomcat/webapps/
 ```
 
+### 3.3 数据卷
+
+> 将主机的一个目录映射到容器的一个目录中。可以在宿主机中操作目录中的内容，那么容器内部映射的文件，也会跟着一起改变
+
+**1. 创建数据卷**
+
+```bash
+docker volume create 数据卷名称
+
+# 创建数据卷之后，默认和存放在一个目录下/var/lib/docker/volumes/数据卷名称/_data
+```
+
+**1. 创建数据卷**
+
+```bash
+docker volume create 数据卷名称
+
+# 创建数据卷之后，默认和存放在一个目录下/var/lib/docker/volumes/数据卷名称/_data
+```
+
+**2. 查看数据卷详细信息**
+
+```bash
+docker volume inspect 数据卷名称
+```
+
+**3. 查看全部数据卷**
+
+```bash
+docker volume ls
+```
+
+**4. 删除数据卷**
+
+```bash
+docker volume remove 数据卷名称
+```
+
 ## 四、Docker 自定义镜像
 
 ## 五、Docker-Compose
