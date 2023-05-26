@@ -14,7 +14,7 @@ bannerBrand:
     margin: '0 auto 2rem'
     borderRadius: '1rem'
   bgImage: '/bg.svg'
-  heroText: reco work
+  title: reco work
   tagline: 工作中遇到的问题、积累的经验，统统都要记录下来。有些东西可能只是自己的习惯，只适合自己看，不足以写成博客。这些本来记录在笔记里，后来发现记录得太随意，过后自己都不忍心看，以后专门在这里记录，目的就是更严谨。哈哈，就是喜欢瞎折腾。
   buttons:
     - { text: About Me, link: '/views/personalInfo/' }
