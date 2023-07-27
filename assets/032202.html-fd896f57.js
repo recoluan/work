@@ -1,0 +1,1 @@
+import{_ as e,o as t,c as _,a as c}from"./app-6e895db1.js";const o={},s=c("p",null,"key值：用于 管理可复用的元素。因为Vue 会尽可能高效地渲染元素，通常会复用已有元素而不是从头开始渲染。这么做使 Vue 变得非常快，但是这样也不总是符合实际需求。",-1),n=[s];function a(r,l){return t(),_("div",null,n)}const d=e(o,[["render",a],["__file","032202.html.vue"]]);export{d as default};

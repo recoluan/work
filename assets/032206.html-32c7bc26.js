@@ -1,0 +1,1 @@
+import{_ as l,o as n,c as i,a as e}from"./app-6e895db1.js";const t={},o=e("ol",null,[e("li",null,"display:none在页面中是不占位置的，而visibility:hidden保留原来的位置后;"),e("li",null,"display：none显示/隐藏 页面会产生回流和重绘的问题，visibility则不会。")],-1),s=[o];function _(c,a){return n(),i("div",null,s)}const d=l(t,[["render",_],["__file","032206.html.vue"]]);export{d as default};

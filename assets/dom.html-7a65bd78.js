@@ -1,0 +1,1 @@
+import{_ as t,r as o,o as n,c as a,a as r,d as c,w as s,b as _}from"./app-6e895db1.js";const l={};function d(i,m){const e=o("RouterLink");return n(),a("div",null,[r("p",null,[c(e,{to:"/views/frontEnd/FEMainPoint/030304.html"},{default:s(()=>[_("DOM")]),_:1})])])}const u=t(l,[["render",d],["__file","dom.html.vue"]]);export{u as default};

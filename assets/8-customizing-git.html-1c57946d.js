@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-efa60236","path":"/docs/git-pro-study/8-customizing-git.html","title":"","lang":"en-US","frontmatter":{},"headers":[],"git":{"createdTime":1690475828000,"updatedTime":1690475828000,"contributors":[{"name":"Reco","email":"recoluan@qq.com","commits":1}]},"filePathRelative":"docs/git-pro-study/8-customizing-git.md"}');export{t as data};

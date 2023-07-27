@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-c1dfad9a","path":"/docs/git-pro-study/9-git-and-other-systems.html","title":"","lang":"en-US","frontmatter":{},"headers":[],"git":{"createdTime":1690475828000,"updatedTime":1690475828000,"contributors":[{"name":"Reco","email":"recoluan@qq.com","commits":1}]},"filePathRelative":"docs/git-pro-study/9-git-and-other-systems.md"}');export{t as data};

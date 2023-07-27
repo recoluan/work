@@ -1,0 +1,1 @@
+import{_ as e,o as t,c as _,a as c}from"./app-6e895db1.js";const o={},s=c("p",null,"行框的排列会受到中间空白（回车\\空格）等的影响，因为空格也属于字符,这些空白也会被应用样式，占据空间，所以会有间隔，把字符大小设为0，就没有空格了。",-1),n=[s];function a(r,l){return t(),_("div",null,n)}const f=e(o,[["render",a],["__file","032205.html.vue"]]);export{f as default};

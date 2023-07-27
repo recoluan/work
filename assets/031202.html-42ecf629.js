@@ -1,0 +1,1 @@
+import{_ as o,o as t,c as l,a as e}from"./app-6e895db1.js";const c={},s=e("ol",null,[e("li",null,"getaddrinfo ENOTFOUND localhost")],-1),_=e("p",null,"解决：localhost绑定127.0.0.1",-1),n=[s,_];function a(r,d){return t(),l("div",null,n)}const f=o(c,[["render",a],["__file","031202.html.vue"]]);export{f as default};
